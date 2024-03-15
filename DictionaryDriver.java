@@ -53,8 +53,7 @@ public class DictionaryDriver {
     }
 
     private static void testcp1(String fileName, String word) {
-        Dictionary d = Dictionary.readInDictionary(fileName); //Commenting this out to initialize a new Dictionary object below
-      
+        Dictionary d = Dictionary.readInDictionary(fileName);
         System.out.println(d.lookup(word));
     }
 
@@ -74,7 +73,7 @@ public class DictionaryDriver {
         // lookup each of the keys and print out what you find
         System.out.println("Testing contains...");
         for (String key : keys) {
-            System.out.println(key + " : " +d.contains(key));
+            System.out.println(key + ": " +d.contains(key));
         }
 
         DictionaryData data = null;
@@ -83,7 +82,7 @@ public class DictionaryDriver {
         for (String key : keys) {
             data = d.lookup(key);
             if (data != null) {
-                System.out.println(key + ": frequency = " + data);
+                System.out.println(data);
             } else {
                 System.out.println(key + ": Not found");
             }
@@ -93,14 +92,12 @@ public class DictionaryDriver {
         System.out.println("Testing remove...");
         // remove one of them
         d.remove(removeWord);
-        // System.out.println(removeWord);
 
         // now do it again
         for (String key : keys) {
             data = d.lookup(key);
-            
             if (data != null) {
-                System.out.println(key + ": frequency = " + data);
+                System.out.println(data);
             } else {
                 System.out.println(key + ": Not found");
             }
@@ -114,7 +111,7 @@ public class DictionaryDriver {
         for (String key : keys) {
             data = d.lookup(key);
             if (data != null) {
-                System.out.println(key + ": frequency = " + data);
+                System.out.println(data);
             } else {
                 System.out.println(key + ": Not found");
             }

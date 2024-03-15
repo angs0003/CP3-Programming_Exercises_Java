@@ -34,7 +34,9 @@ public class DictionaryData {
      */
     @Override
     public String toString() {
+        // System.out.println(this.line); //Printing the input (for testing purposes
         String[] lineArray = this.line.split(" "); //Splitting the input into an array
+        
         if (lineArray.length != 3) //Checking if the input is valid
         {
             return this.line;

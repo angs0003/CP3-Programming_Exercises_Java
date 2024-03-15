@@ -36,7 +36,7 @@ public class Dictionary {
     public static <K> K getIgnoreCase(Map<String, K> map, String key) {
         for (String k : map.keySet()) {
             if (k.equalsIgnoreCase(key)) {
-
+                // System.out.println(k.equalsIgnoreCase(key));
                 return map.get(k);
             }
         }
@@ -70,7 +70,32 @@ public class Dictionary {
      * @return the data associated with the word identified by <code>word</code>.
      */
     public DictionaryData lookup(String word) {
-        return getIgnoreCase(dictionaryMap, word);
+        if (getIgnoreCase(dictionaryMap, word) == null) {
+            // System.out.println("hello word");
+            return null;
+        } else {
+            String matchingWord = null;
+            for (String key : dictionaryMap.keySet()) {
+                if (key.equalsIgnoreCase(word)) {
+                    matchingWord = key;
+                    break;
+                }
+            }
+
+            if (matchingWord == null) {
+                return null;
+            } else {
+                String a = "3 " + matchingWord + " " + getIgnoreCase(dictionaryMap, word).toString();
+                DictionaryData look = new DictionaryData(a);
+                return look;
+            }
+            
+            // String a = "3 " + dictionaryMap.keySet() + " " + getIgnoreCase(dictionaryMap, word).toString();
+            // DictionaryData look = new DictionaryData(a);
+            // return look;
+            // return getIgnoreCase(dictionaryMap, word);
+        }
+        // return getIgnoreCase(dictionaryMap, word);
     }
 
     /**
